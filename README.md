@@ -69,7 +69,7 @@ You will execute the program by typing this in the terminal:
 	./try_c
 
 **Try these commands in the terminal, and see what they do. What happens if you 
-run `make` two times in a row? **
+run `make` two times in a row?**
 
 When coding in C, you will do this over and over again in the terminal as you 
 make changes to your code: 
