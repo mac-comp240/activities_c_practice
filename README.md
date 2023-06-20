@@ -1,151 +1,179 @@
 # Activity 2: Crash Course on C
 
-Folder: `1-notation`
+Folder: `activities_c_practice`
 
 This is an introduction to 
 
 * C programming basic constructs
 * The representation of C integer data types
-* The use of function prototypes in C header files (.h files).
-
-You will complete several tasks that ask you to practice with writing C code, including looking at how C on the server represents integer
-data.
 
 
-- You will consider the eight different possible data types in C that can
-  represent integers that are either unsigned (positive only) or signed (both
-  positive and negative).
+You will complete several tasks that ask you to practice with writing C code, 
+including looking at how C on the server represents integer data.
+
+- You will create a function to do a simple calculation, practicing with numbers, 
+conditionals, `assert`, and `printf`
+- You will create a function to experiment with C loop forms
+- You will create a function to print the size in bytes of each C integer type, 
+and to print the min and max values for each type
 	- unsigned char, unsigned short, unsigned int, unsigned long
 	- char, short, int, long
 	
-- You will try using printf to print each of these data types.
-
-- You will observe the number of bytes allotted for each of these types in C on
-  the linux server.
-
-- You will use a provided *library* of functions that is designed to create
-  strings of characters that represent the underlying binary representation  of
-  a value of one of these types.
-
-## Resources
-
-- For help on how to print each type of number, see [_Format Specifiers in C_](https://www.thecrazyprogrammer.com/2016/10/format-specifiers-c.html) by The Crazy Programmer (and note that `%zu` is the correct format code for printing the result of calls to `sizeof`)
-- For the constants that specify each type's size, see [_C Programming/limits.h](https://en.wikibooks.org/wiki/C_Programming/limits.h)
+**Hint:** At the bottom of this README is a section called References that 
+contains references to resources that can help you with these questions
 
 ## Provided Code
 
-There are three files of code for this activity:
+There is one code file for this activity, as well as a Makefile:
 
-- `binary_convert.h`
-    - the header file for the binary_convert library, included in the main code file, contains declarations of functions in the library
-- `binary_convert.c`
-    - the code file containing the definitions of the functions declared in the header file
-- `activity.c`
-    - the source file which contains the main method, in which you will complete your tasks
+- `activity2.c`
+    - the source file which contains the main function, in which you will 
+    complete your tasks
+- `Makefile`
+    - a short makefile to automate the compilation process
 
+**Open the file `activity2.c` and read it carefully.**
 
-## A library of functions
-
-The files called `binary_convert.h` and `binary_convert.c` comprise a small
-*library* of functions we are providing to you. Similar to standard C libraries
-provided by the language, the functions in this file can be used in other code
-files. The header file (with the extension `.h`) declares the "interface" to the library: 
-what functions and constants are provided by the library. The code file (with the extension `.c`)
-defines the functions and constants.
-
-**Open `binary_convert.h` and `binary_convert.c` to see what they contain.**
-
-
-### To use a user-defined libraryr
-
-**Look at `activity.c` and note this line near the beginning of the file:**
-
-	#include "binary_convert.h"
-
-This enables us to use the functions declared in `binary_convert.h` and fully
-defined with C code in `binary_convert.c`.
-
-
-### Warning 
-
-The code in `binary_convert.c` uses some operators and functions that you are
-not yet familiar with. Note however, that each function is documented to explain
-what the input parameter is and what it returns. 
-
-
-
-## Multiple .c files make one executable program
-
-Compiling a program like this that has two code files plus a header file, is slightly more complicated 
-than other examples we've seen. We need to pass both `.c` files to the compiler.
+Notice that it has declarations of functions at the top of the file, followed 
+by the main program, and then the function definitions 
+themseles. There are "TODO" comments in the file to help guide you in this 
+activity.
 
 **Open the file `Makefile` and read it carefully.**
 
-At the top of the Makefile, we define the compiler we want to use, with one option, which chooses which variant of C to use (C99).
+Recall that the Makefile defines how we compile our source code into an 
+executable program, automating the process for us.
 
-Recall that the Makefile defines how we compile our source code into an executable program, automating the process for us. In this case, the Makefile combines the two C files to create one binary. 
-
-The executable program will be called `bin_hex`. Since the Makefile has
-the executable named `bin_hex` as the first *target* (text before a colon) in
-the file, you can simply build it by typing this in the terminal:
+- At the top of the Makefile, we define the compiler we want to use, with one 
+option, which chooses which variant of C to use (C99).
+- The next line specifies a *target* (the text before a colon), and the files 
+it depends on (listed after the colon). 
+    - The target is the file that will be generated, in this case the name of 
+    the executable (`try_c`)
+    - The dependency files are the files that will be used to build the 
+    executable; if one of the dependency files has been modified, calling 
+    `make` with the given target will cause it to rerun the steps
+- The indented line or lines that follow specify terminal commands to use to 
+create the executable; in this case we call the compiler
+- The first target in a file is the "default" target; when you call `make` by 
+itself the default is checked and run (if necessary)
 
     make
 
 The above command is the same as if you had typed:
 
-	make bin_hex
+	make try_c
 
-Execute the program by typing this in the terminal:
+You will execute the program by typing this in the terminal:
 
-	./bin_hex
-	
-When coding in C, you will do this over and over again in the terminal as you
+	./try_c
+
+**Try these commands in the terminal, and see what they do. What happens if you 
+run `make` two times in a row? **
+
+When coding in C, you will do this over and over again in the terminal as you 
 make changes to your code: 
 
 	make 
-	./bin_hex
+	./try_c
 	
-Note that you can retrieve previous commands at the linux terminal shell by
-using the up arrow key many times. Try it for these commands.
+Remember that you can retrieve previous commands at the linux terminal shell by
+using the up arrow key many times. **Try using the arrow keys now.**
 
 ## Your tasks
 
-- Open `activity.c` in your editor
-- Add your name in a comment at the top of the file. You must put your name at the top of every code file you edit for assignments for this course (you will lose points on homework questions if you don't!) 
-- Modify `activity.c` by following the instructions in the TODO comments in the file. These 
-explain what you need to do.
+### First Steps
+- Open `activity2.c` in your editor
+- Add your name in a comment at the top of the file. You must put your name at 
+the top of every code file you edit for assignments for this course (you will 
+lose points on homework questions if you don't!) 
 
-You will not need to modify any other files!
+
+### Task 1: A simple "sales tax" example
+
+- Look for the definition of the `sales_example` function in `activity2.c`. 
+- Note how the function takes in 3 inputs: the cost per item, the number of 
+items, and the sales tax rate.
+- In the function, do the following:
+    - Declare and define a variable to hold the total pre-tax amount to be paid 
+    (cost times number)
+    - Declare and define a variable to hold the total cost after incorporating 
+    sales tax
+    - Add an `if` statement to check if the sales tax rate is 0.0; it should 
+    print a message that no sales tax applies if this is the case
+    - Regardless of the outcome of the `if` statement, return the total cost 
+    calculated
+- Examine the call to `sales_example` in `main`; compile and run the program, 
+checking that the output is correct
+- Try a range of other values to ensure the correct result is returned each time
+- Incorporate the `assert` statement to automatically check for correct results,
+testing at least 4 different scenarios
+
+### Task 2: Experimenting with loops
+
+- Near the top of the file, add a declaration of a function called 
+`loop_example` that returns nothing and that has no input parameters
+- In the main function, add a call to your new function
+- In the space provided below the main function, put in your definition of 
+`loop_example`
+    - First, write a simple `for` loop that loops over the integers from 10 to 
+    25, going up by 5 each time, and it prints the integer and the square of the 
+    integer each time
+    - Next, add a `while` loop that does the same thing
+    - Finally, add a `do-while` loop that does the same thing
+
+
+### Task 3: Exploring sizes and ranges for unsigned integer types
+
+- Read the starter code for the `utype_sizes` function: it prints a constant 
+from the `limits.h` library for the maximum value of 
+the `unsigned char` integer type, and it prints the number of bytes used by an 
+`unsigned char`
+- Using the resources listed in the References section below, research how to 
+display a value of each of the three additional types we are examining: 
+`unsigned short`, `unsigned int`, and `unsigned long`
+- Also research the min/max constants provided by the `limist.h` library
+- Add print statements for the three additional types, printing the
+maximum value for that type, and its number of bytes
+
+**Edit the table below to record the values you found!**
+
+| Type              | Max value  | Number Bytes |
+| :-------------:   | :-------:  | :----------: |
+| `unsigned char`   |            |              |
+| `unsigned short`  |            |              |
+| `unsigned int`    |            |              |
+| `unsigned long`   |            |              |
+
+
+### Task 4: Exploring sizes and ranges for signed integer types
+- Near the top of the file, add a declaration for `stype_sizes`
+- In the `main` function, add a call to `stype_sizes`
+- In the space below `main`, add a definition of `stype_sizes`
+    - Base this on `utype_sizes`: four print statements
+    - Include the minimum as well as the maximum in each print statement
+    - Research the different codes needed for signed integers
+
+**Edit the table below to record the values you found!**
+
+| Type     | Min value  | Max value  | Number Bytes |
+| :----:   | :--------: | :--------: | :----------: |
+| `char`   |            |            |              |
+| `short`  |            |            |              |
+| `int`    |            |            |              |
+| `long`   |            |            |              |
 
 
 ### Notes 
 
 - The macro `sizeof(TYPE)` returns the number of bytes used for a particular
   data type by the compiler on the particular hardware where the program is
-  compiled and run. The `%zu` code is used to print the 
-- The functions in `binary_convert.h` return strings of text by allocating space
-  for them in the computer's memory. This memory must always be cleared after
-  you are finished using it by calling the `free()` function, as in the example below:
-
-```
-// declare the string pointer
-char * bin_str; 
-
-// create the string by calling a function from `binary_convert.h`
-bin_str = nibble_to_bin_str(i); 
-
-// After using bin_str, remove it from memory. 
-free(bin_str); 
-``` 
-
-- After free, `bin_str` is NULL until its memory is recreated. You can re-use
-  `bin_str` again, but must do so by calling one of the functions in
-  `binary_convert.h` to re-populate it with a new value.
+  compiled and run. The `%zu` code is used to print the result of `sizeof`!
 
 ### Feeling stuck or confused?
 
+Ask for help right away from neighbors, preceptors, or instructor!
 
-Ask for help right away during class, from neighbors, preceptors, or instructor!
 
 ### Commenting as documentation
 
@@ -159,8 +187,18 @@ You should comment each function you write like you would for Java:
 
 ## References
 
-[printf format specifier reference from cplusplus.com](http://www.cplusplus.com/reference/cstdio/printf/).
-
-[limits.h reference in wikibooks](https://en.wikibooks.org/wiki/C_Programming/limits.h)
-
-[limits.h reference in tutorialspoint](https://www.tutorialspoint.com/c_standard_library/limits_h.htm)
+- Makefile guides
+  - [An Introduction to Makefiles](https://www.gnu.org/software/make/manual/html_node/Introduction.html), by GNU
+  - [Makefile Tutorials and Examples to Build From](https://earthly.dev/blog/make-tutorial/), by Aniket Bhattacharyea
+  - [makefile basics - anthony explains](https://www.youtube.com/watch?v=20GC9mYoFGs)
+- General C syntax help
+  - [Chapter 1 of _Dive into Systems_](https://diveintosystems.org/book/C1-C_intro/index.html)
+  - _The C Programming Language_, often just known as K&R for Kernighan and Ritchie
+  - _C: A Reference Manual_, by Harbitson and Steele
+- The `assert` statement
+  - [assert reference from cplusplus.com](https://cplusplus.com/reference/cassert/assert/?kw=assert)
+- Printf formatting codes
+  - [printf format specifier reference from cplusplus.com](http://www.cplusplus.com/reference/cstdio/printf/).
+  [_Format Specifiers in C_](https://www.thecrazyprogrammer.com/2016/10/format-specifiers-c.html) by The Crazy Programmer
+  - [_C Programming/limits.h](https://en.wikibooks.org/wiki/C_Programming/limits.h)
+  - [limits.h reference in tutorialspoint](https://www.tutorialspoint.com/c_standard_library/limits_h.htm)
