@@ -194,7 +194,7 @@ You should comment each function you write like you would for Java:
 - General C syntax help
   - [Chapter 1 of _Dive into Systems_](https://diveintosystems.org/book/C1-C_intro/index.html)
   - _The C Programming Language_, often just known as K&R for Kernighan and Ritchie
-  - _C: A Reference Manual_, by Harbitson and Steele
+  - _C: A Reference Manual_, by Harbison and Steele
 - The `assert` statement
   - [assert reference from cplusplus.com](https://cplusplus.com/reference/cassert/assert/?kw=assert)
 - Printf formatting codes
