@@ -1,5 +1,6 @@
 # Activity 2: Crash Course on C
 
+## Put Name(s) here
 Folder: `activities_c_practice`
 
 This is an introduction to 
@@ -84,9 +85,11 @@ using the up arrow key many times. **Try using the arrow keys now.**
 
 ### First Steps
 - Open `activity2.c` in your editor
-- Add your name in a comment at the top of the file. You must put your name at 
+- Add your name(s) in a comment at the top of the file. You must put your name at 
 the top of every code file you edit for assignments for this course (you will 
-lose points on homework questions if you don't!) 
+lose points on homework questions if you don't!)
+- Also, add your name(s) to this README document: Some of you have Github usernames that
+are very different from your actual names. This makes it easier to know quickly who is who! 
 
 
 ### Task 1: A simple "sales tax" example
