@@ -1,5 +1,6 @@
 # Activity 2: Crash Course on C
 
+## Put Name(s) here
 Folder: `activities_c_practice`
 
 This is an introduction to 
@@ -69,7 +70,7 @@ You will execute the program by typing this in the terminal:
 	./try_c
 
 **Try these commands in the terminal, and see what they do. What happens if you 
-run `make` two times in a row? **
+run `make` two times in a row?**
 
 When coding in C, you will do this over and over again in the terminal as you 
 make changes to your code: 
@@ -84,9 +85,11 @@ using the up arrow key many times. **Try using the arrow keys now.**
 
 ### First Steps
 - Open `activity2.c` in your editor
-- Add your name in a comment at the top of the file. You must put your name at 
+- Add your name(s) in a comment at the top of the file. You must put your name at 
 the top of every code file you edit for assignments for this course (you will 
-lose points on homework questions if you don't!) 
+lose points on homework questions if you don't!)
+- Also, add your name(s) to this README document: Some of you have Github usernames that
+are very different from your actual names. This makes it easier to know quickly who is who! 
 
 
 ### Task 1: A simple "sales tax" example
@@ -194,12 +197,12 @@ You should comment each function you write like you would for Java:
 - General C syntax help
   - [Chapter 1 of _Dive into Systems_](https://diveintosystems.org/book/C1-C_intro/index.html)
   - _The C Programming Language_, often just known as K&R for Kernighan and Ritchie
-  - _C: A Reference Manual_, by Harbitson and Steele
+  - _C: A Reference Manual_, by Harbison and Steele
 - The `assert` statement
   - [assert reference from cplusplus.com](https://cplusplus.com/reference/cassert/assert/?kw=assert)
 - Printf formatting codes
   - [printf format specifier reference from cplusplus.com](http://www.cplusplus.com/reference/cstdio/printf/).
-  [_Format Specifiers in C_](https://www.thecrazyprogrammer.com/2016/10/format-specifiers-c.html) by The Crazy Programmer
+  - [_Format Specifiers in C_](https://www.thecrazyprogrammer.com/2016/10/format-specifiers-c.html) by The Crazy Programmer
 - Limit constants
   - [_C Programming/limits.h](https://en.wikibooks.org/wiki/C_Programming/limits.h)
   - [limits.h reference in tutorialspoint](https://www.tutorialspoint.com/c_standard_library/limits_h.htm)
