@@ -202,6 +202,6 @@ You should comment each function you write like you would for Java:
   - [assert reference from cplusplus.com](https://cplusplus.com/reference/cassert/assert/?kw=assert)
 - Printf formatting codes
   - [printf format specifier reference from cplusplus.com](http://www.cplusplus.com/reference/cstdio/printf/).
-  [_Format Specifiers in C_](https://www.thecrazyprogrammer.com/2016/10/format-specifiers-c.html) by The Crazy Programmer
+  - [_Format Specifiers in C_](https://www.thecrazyprogrammer.com/2016/10/format-specifiers-c.html) by The Crazy Programmer
   - [_C Programming/limits.h](https://en.wikibooks.org/wiki/C_Programming/limits.h)
   - [limits.h reference in tutorialspoint](https://www.tutorialspoint.com/c_standard_library/limits_h.htm)
